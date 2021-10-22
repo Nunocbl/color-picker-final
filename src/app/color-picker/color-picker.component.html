@@ -1,0 +1,24 @@
+<div class=color-wrapper>
+
+    <canvas #canvas class="color-palette" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)"
+        width="150" height="150">
+    </canvas>
+
+    <canvas #canvasSlider class="color-slider" (mousedown)="onMouseDownInSlider($event)" (mousemove)="onMouseMoveInSlider($event)">
+    </canvas>
+
+</div>
+<div class="input-wrapper">
+    <span class="text">{{hexColor}}</span>
+    <div class="color-div" [ngStyle]="{'background-color': color || 'white'}"></div>
+
+</div>
+
+<div class="pre-cooked-colors">
+    <div *ngFor='let color of defaultColors; let i = index'>
+
+        <div [style.background-color]="cookColor(color)" (click)="selectDefaultColor(color)"></div>
+    </div>
+
+</div>
+<button (click)="onclick(color)">Selecione </button>
